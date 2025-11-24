@@ -252,7 +252,9 @@ def llm_explanation_answer(question: str, context: dict | None = None) -> str:
     Use Groq LLM (Llama-3) to explain the result.
     This is ONLY for explanations, not diagnosis or prescriptions.
     """
-    api_key = "YOUR_GROQ_API_KEY_HERE"  # <<< replace with your real key
+    api_key = st.secrets.get("GROQ_API_KEY") or os.getenv("GROQ_API_KEY")
+
+    
 
     if not api_key or "YOUR_GROQ_API_KEY_HERE" in api_key:
         return (
