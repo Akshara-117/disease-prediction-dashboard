@@ -1,0 +1,16 @@
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+.env
+
+# Big raw datasets not needed for deployment
+Training*
+Testing*
+train_*
+test_*
+*.xlsx
+
+# Optional: figures and reports
+eda_figs/
+report_figs/
