@@ -1,6 +1,7 @@
 import os
 import base64
 from pathlib import Path
+from typing import Optional, Dict, Any
 
 import joblib
 import numpy as np
@@ -11,13 +12,16 @@ from groq import Groq   # Groq LLM client
 
 
 # ---------- PATHS ----------
-BASE = r"C:\Users\aksha\OneDrive\Desktop\big data\trial"
-MODEL_DIR = os.path.join(BASE, "models")
-FEAT_PATH = os.path.join(MODEL_DIR, "feature_cols.txt")
-LE_PATH = os.path.join(MODEL_DIR, "label_encoder.pkl")
-SPEC_MAP_PATH = os.path.join(BASE, "disease_specialist_map.csv")
+# Base directory = folder where this app.py lives
+BASE = Path(__file__).resolve().parent
 
-BG_PATH = Path("medical.png")  # dashboard background image
+MODEL_DIR = BASE / "models"
+FEAT_PATH = MODEL_DIR / "feature_cols.txt"
+LE_PATH = MODEL_DIR / "label_encoder.pkl"
+SPEC_MAP_PATH = BASE / "disease_specialist_map.csv"
+
+BG_PATH = BASE / "medical.png"  # dashboard background image
+
 
 
 # ---------- PAGE CONFIG ----------
